@@ -13,7 +13,6 @@ public class Terminal {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st;
-    private boolean bIsBufferFlagged = false;
 
     public String readWord(){
         while(st == null || !st.hasMoreTokens()) {
@@ -23,7 +22,9 @@ public class Terminal {
                 throw new RuntimeException(e);
             }
         }
-        return  st.nextToken();
+        String word = st.nextToken();
+        st = new StringTokenizer("");
+        return  word;
     }
 
     public int readInt() throws NumberOverflowException, NumberMissmatchException {
